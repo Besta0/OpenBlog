@@ -3,6 +3,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import Navbar from "@/components/Navbar";
+import Comments from "@/components/Comments";
 import { blogPosts, getPostBySlug } from "@/data/blogPosts";
 import "highlight.js/styles/github-dark.css";
 
@@ -113,6 +114,9 @@ export default async function BlogPostPage({ params }: PageProps) {
               {post.content ?? ""}
             </ReactMarkdown>
           </div>
+
+          {/* Comments */}
+          <Comments />
         </div>
       </article>
     </>
