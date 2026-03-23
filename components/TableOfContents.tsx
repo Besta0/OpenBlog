@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import GithubSlugger from "github-slugger";
+import { useEffect, useMemo, useState } from "react";
 
 export interface TocItem {
   id: string;
@@ -8,27 +9,29 @@ export interface TocItem {
   level: number;
 }
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]+/g, "")
-    .replace(/--+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+/** 与 rehype-slug 一致：用标题纯文本生成 slug，重复标题自动加 -1、-2… */
+function headingSlugSource(rawLine: string): string {
+  return rawLine
+    .trim()
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/__(.+?)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1");
 }
 
 /** Extract heading items from raw markdown string (server-side utility). */
 export function extractToc(markdown: string): TocItem[] {
+  const slugger = new GithubSlugger();
   const headingRe = /^(#{1,3})\s+(.+)$/gm;
   const items: TocItem[] = [];
   let match: RegExpExecArray | null;
 
   while ((match = headingRe.exec(markdown)) !== null) {
     const level = match[1].length;
-    const text = match[2].trim().replace(/`[^`]+`/g, (m) => m.slice(1, -1));
+    const rawHeading = match[2].trim();
+    const text = rawHeading.replace(/`[^`]+`/g, (m) => m.slice(1, -1));
+    const id = slugger.slug(headingSlugSource(rawHeading));
     items.push({
-      id: slugify(match[2]),
+      id,
       text,
       level,
     });
@@ -43,7 +46,7 @@ interface TableOfContentsProps {
 
 export default function TableOfContents({ content }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>("");
-  const items = extractToc(content);
+  const items = useMemo(() => extractToc(content), [content]);
 
   useEffect(() => {
     if (items.length === 0) return;
