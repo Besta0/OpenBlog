@@ -3,7 +3,7 @@ import BlogCard from "@/components/BlogCard";
 import { getBlogPostsWithViews } from "@/data/blogPosts";
 
 export default async function BlogPage() {
-  const posts = getBlogPostsWithViews();
+  const posts = await getBlogPostsWithViews();
   return (
     <>
       <Navbar />

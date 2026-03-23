@@ -10,7 +10,7 @@ export default function BlogCard({ post }: BlogCardProps) {
     <Link href={`/blog/${post.slug}`}>
       <article className="group cursor-pointer rounded-2xl bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
         {/* Title */}
-        <h2 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-pink-500">
+        <h2 className="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-green-500">
           {post.title}
         </h2>
 
@@ -24,7 +24,7 @@ export default function BlogCard({ post }: BlogCardProps) {
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-pink-100 hover:text-pink-600"
+              className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-green-100 hover:text-green-600"
             >
               {tag}
             </span>
