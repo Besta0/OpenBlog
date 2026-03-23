@@ -1,5 +1,3 @@
-# Optimizing Web Performance
-
 Performance is critical for user experience and SEO. Here are practical optimization techniques.
 
 ## Core Web Vitals

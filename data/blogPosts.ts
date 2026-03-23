@@ -184,6 +184,17 @@ export const blogPosts: BlogPost[] = [
     readingTime: "4 min read",
     content: "",
   },
+  {
+    id: "9",
+    slug: "seo-starter",
+    title: "How to Do SEO for Beginners in 2026: The Complete Step-by-Step Guide",
+    description:
+      "Learn how to rank on Google with proven SEO strategies, including keyword research, on-page SEO, technical SEO, and link building.",
+    tags: ["SEO", "Marketing", "Web Development"],
+    date: "2026-3-22",
+    readingTime: "8 min read",
+    content: "",
+  },
 ];
 
 // ─── Public API ───────────────────────────────────────────────────────────────

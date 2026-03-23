@@ -1,5 +1,3 @@
-# Building Accessible Web Apps
-
 Web accessibility ensures that people with disabilities can use your applications effectively.
 
 ## Key Principles

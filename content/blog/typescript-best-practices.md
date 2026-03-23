@@ -1,5 +1,3 @@
-# TypeScript Best Practices
-
 Write better TypeScript code with these essential patterns and tips.
 
 ## Use Strict Mode

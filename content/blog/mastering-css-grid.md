@@ -1,5 +1,3 @@
-# Mastering CSS Grid Layout
-
 CSS Grid is a powerful layout system that allows you to create complex, responsive designs with ease.
 
 ## Basic Grid Setup

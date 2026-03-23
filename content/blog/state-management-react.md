@@ -1,5 +1,3 @@
-# State Management in React
-
 Choosing the right state management solution is crucial for building scalable React applications.
 
 ## Local State

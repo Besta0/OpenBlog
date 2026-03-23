@@ -1,5 +1,3 @@
-# Getting Started with Next.js 14
-
 Next.js 14 introduces the App Router, a new way to build React applications with improved performance and developer experience.
 
 ## What's New in Next.js 14
